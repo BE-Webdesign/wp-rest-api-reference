@@ -1,0 +1,45 @@
+{
+  "name": "wp-rest-api-reference",
+  "version": "0.0.0",
+  "description": "A GUI tool for interacting with a WordPress REST API Reference",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node test/test.js",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js"
+  },
+  "bin": {
+    "mocha": "./node_modules/.bin/mocha",
+    "babel": "./node_modules/.bin/babel",
+    "webpack": "./node_modules/.bin/webpack",
+    "babel-loader": "./node_modules/.bin/babel-loader",
+    "babel-node": "./node_modules/.bin/babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BE-Webdesign/wp-rest-api-reference.git"
+  },
+  "keywords": [
+    "WordPress",
+    "REST",
+    "API"
+  ],
+  "author": "Edwin Cromley",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/BE-Webdesign/wp-rest-api-reference/issues"
+  },
+  "homepage": "https://github.com/BE-Webdesign/wp-rest-api-reference#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "eslint": "^3.12.2",
+    "tape": "^4.6.3",
+    "webpack": "^1.14.0"
+  }
+}
