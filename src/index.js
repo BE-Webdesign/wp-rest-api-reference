@@ -1,31 +1,35 @@
 'use-strict'
 
 /**
- * Internal dependecies.
+ * External Dependencies.
  */
-import sampleReference from './sampleData/sample.js'
-import Reference from './app/reference/'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { Router, Route, IndexRoute } from 'react-router'
 
-const fetchReference = () => {
-	return
-}
+/**
+ * Internal dependencies.
+ */
+import App from './ui/components/App'
+import ReferenceView from './ui/components/ReferenceView'
+import store, { history } from './ui/store'
 
-const getBootstrapReference = () => {
-	if ( sessionStorage ) {
-		let referenceData = sessionStorage.getItem( 'referenceData' )
-		return JSON.parse( referenceData )
-	}
+const router = (
+	<Router history={history}>
+		<Route path="/rest-reference" component={ App }>
+			<IndexRoute component={ ReferenceView }></IndexRoute>
+		</Route>
+	</Router>
+)
 
-	let referenceData = fetchReference()
+const provider = (
+	<Provider store={store}>
+		{router}
+	</Provider>
+)
 
-	if ( null === referenceData ) {
-		referenceData = sampleReference
-	}
-
-	return referenceData
-}
-
-const bootstrapReference = Reference( 'Main Reference', getBootstrapReference() )
-
-console.log( bootstrapReference )
-console.log( bootstrapReference.getRoutesGroupedBySchemaType() )
+render(
+	provider,
+	document.getElementById( 'wp-rest-api-reference' )
+)
