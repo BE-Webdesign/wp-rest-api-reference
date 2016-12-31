@@ -10,16 +10,16 @@ module.exports = {
 		filename: 'app.bundle.js'
 	},
 	resolve: {
-		extensions: ['', '.js']
+		extensions: ['', '.js', '.jsx']
 	},
 	module: {
 		loaders: [{
-			test: /\.js?$/,
+			test: /\.jsx?$/,
 			include: path.resolve( __dirname, 'src' ),
 			loader: 'babel-loader',
 			query: {
 				cacheDirectory: true,
-				presets: ['es2015'],
+				presets: ['es2015', 'react'],
 				plugins: ['transform-es2015-modules-commonjs']
 			}
 		}]
