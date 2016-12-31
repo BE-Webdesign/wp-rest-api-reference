@@ -4,6 +4,24 @@
 import React from 'react'
 
 const ReferenceArg = ( { arg } ) => {
+	const renderValue = ( value ) => {
+		if ( value.length === 0 ) {
+			return 'Empty Value'
+		}
+
+		return value
+	}
+
+	const renderArray = ( array ) => {
+		if ( 0 === array.length ) {
+			return ( <p>[] (empty array)</p> )
+		}
+
+		return array.map( ( value ) => {
+			return ( <li key={ value }>{ renderValue( String( value ) ) }</li> )
+		} )
+	}
+
 	const getProperties = argument => Object.keys( argument )
 
 	const renderProperty = ( propertyName, object ) => {
@@ -23,9 +41,7 @@ const ReferenceArg = ( { arg } ) => {
 					<li key={ propertyName }>
 						<h4>{ propertyName }:</h4>
 						<ul>
-						{ object[ propertyName ].map( ( aproperty ) => {
-							return ( <li key={ aproperty }>{ aproperty }</li> )
-						} ) }
+						{ renderArray( object[ propertyName ] ) }
 						</ul>
 					</li>
 				)
@@ -34,7 +50,7 @@ const ReferenceArg = ( { arg } ) => {
 			return (
 				<li key={ propertyName }>
 					<h4>{ propertyName }</h4>
-					<p>{ object[ propertyName ] }</p>
+					<p>{ renderValue( String( object[ propertyName ] ) ) }</p>
 				</li>
 			)
 		}
