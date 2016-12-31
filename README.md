@@ -23,7 +23,7 @@ The wp-rest-api-reference is written primarily in JavaScript. It uses React/Redu
 ## Roadmap.
 Each item in the list below will continually evolve and share overlap with other items, however the general project direction will follow these items.
 
--Build basic architecture. ( Redux/React UI, Presenter Layer to talk to UI and application, Application layer written purely in JavaScript without a framework. Persistence Layer will eventually need to talk to WordPress and be handled by WordPress. This for the most part is done. )
--Build UI. ( Figure out the best way to display this data. Ideally, it would be cool to have this somehow render in the active theme. )
--Build Application Layer persistence APIs. ( These will become the interfaces for saving data. Their implementation will be fleshed out in the next step. )
--Build Persistence Layer. ( Figure out whether this data will be stored in WordPress somehow or potentially somewhere else. )
+- Build basic architecture. ( Redux/React UI, Presenter Layer to talk to UI and application, Application layer written purely in JavaScript without a framework. Persistence Layer will eventually need to talk to WordPress and be handled by WordPress. This for the most part is done. )
+- Build UI. ( Figure out the best way to display this data. Ideally, it would be cool to have this somehow render in the active theme. )
+- Build Application Layer persistence APIs. ( These will become the interfaces for saving data. Their implementation will be fleshed out in the next step. )
+- Build Persistence Layer. ( Figure out whether this data will be stored in WordPress somehow or potentially somewhere else. )
