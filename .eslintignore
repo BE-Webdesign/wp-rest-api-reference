@@ -1,2 +1,2 @@
 # Ignore sample data js files.
-sampleData/*
+src/sampleData/*

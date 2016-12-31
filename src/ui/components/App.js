@@ -12,7 +12,7 @@ import Main from './Main'
 
 const mapStateToProps = ( state ) => {
 	return {
-		posts: state.posts
+		reference: state.reference
 	}
 }
 
