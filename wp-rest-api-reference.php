@@ -68,9 +68,11 @@ function wp_rest_reference_loaded() {
 	add_action( 'wp_head', 'wp_rest_reference_bootstrap_js' );
 
 	wp_head();
+	get_header();
 	?>
-	<div id="wp-rest-api-reference"></div>
+	<div id="wp-rest-api-reference" class="wp-rest-api-reference"></div>
 	<?php
+	get_footer();
 	wp_footer();
 	// We're done.
 	die();
