@@ -27,6 +27,7 @@ if ( ! defined( 'WP_REST_API_REFERENCE_MANAGER_URL' ) ) {
 register_activation_hook( __FILE__, '\wp_rest_reference_activation_check' );
 add_action( 'init',          'wp_rest_reference_init' );
 add_action( 'parse_request', 'wp_rest_reference_loaded' );
+add_filter( 'template_include', 'wp_rest_reference_load_template' );
 
 /**
  * Registers rewrite rules for the API.
@@ -57,7 +58,7 @@ function wp_rest_reference_register_rewrites() {
 /**
  * Fires when a request is parsed by WordPress and matches the WP REST API Reference endpoint.
  *
- * @global WP             $wp             Current WordPress environment instance.
+ * @global WP $wp Current WordPress environment instance.
  */
 function wp_rest_reference_loaded() {
 	if ( empty( $GLOBALS['wp']->query_vars['rest_reference_path'] ) ) {
@@ -66,16 +67,51 @@ function wp_rest_reference_loaded() {
 
 	add_action( 'wp_enqueue_scripts', 'wp_rest_reference_enqueue' );
 	add_action( 'wp_head', 'wp_rest_reference_bootstrap_js' );
+}
 
+/**
+ * Override template for the WP REST API reference.
+ *
+ * @param string|array $template Template file to load.
+ */
+function wp_rest_reference_load_template( $template ) {
+	// If the reference is not set load the normal template.
+	if ( empty( $GLOBALS['wp']->query_vars['rest_reference_path'] ) ) {
+		return $template;
+	}
+
+	$template = WP_REST_API_REFERENCE_MANAGER_PATH . '/reference-template.php';
+	return $template;
+}
+
+/**
+ * The default content wrapper starting.
+ */
+function wp_rest_api_reference_content_wapper_start() {
+	// Load header.
 	wp_head();
 	get_header();
+
 	?>
-	<div id="wp-rest-api-reference" class="wp-rest-api-reference"></div>
+	<div class="wrap">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
 	<?php
+}
+
+/**
+ * The default content wrapper ending.
+ */
+function wp_rest_api_reference_content_wapper_end() {
 	get_footer();
+	get_sidebar();
 	wp_footer();
-	// We're done.
-	die();
+
+	?>
+			</main><!-- #main -->
+		</div><!-- #primary -->
+	</div>
+	<?php
 }
 
 /**
