@@ -30,3 +30,50 @@ test( 'ReferencePresenter', ( assert ) => {
 
 	assert.end()
 } )
+
+test( 'ReferencePresenter', ( assert ) => {
+	const reference = Reference( 'Test Reference', sampleReference )
+	const referencePresenter = ReferencePresenter( reference )
+	const viewModel = referencePresenter.present()
+
+	let expected = [
+		'post',
+		'post-revision',
+		'page',
+		'page-revision',
+		'attachment',
+		'type',
+		'status',
+		'taxonomy',
+		'category',
+		'tag',
+		'user',
+		'comment',
+		'settings'
+	]
+	let actual = viewModel.schemaTypes
+
+	assert.deepEqual( actual, expected, 'The presenter view model schema types should match.' )
+
+	expected = [
+		'post',
+		'post-revision',
+		'page',
+		'page-revision',
+		'attachment',
+		'type',
+		'status',
+		'taxonomy',
+		'category',
+		'tag',
+		'user',
+		'comment',
+		'settings',
+		'none'
+	]
+	actual = viewModel.routesGroupedBySchema.map( schema => schema.type )
+
+	assert.deepEqual( actual, expected, 'The routes grouped by schema should match.' )
+
+	assert.end()
+} )

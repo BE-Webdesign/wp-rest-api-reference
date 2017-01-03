@@ -10,7 +10,7 @@ import EndpointsList from './EndpointsList'
 
 const ReferenceRoute = ( route ) => (
 	<div>
-		<h1>{ route.routeName }</h1>
+		<h2>Route: { route.routeName }</h2>
 		<EndpointsList endpoints={ route.endpoints } />
 	</div>
 )
