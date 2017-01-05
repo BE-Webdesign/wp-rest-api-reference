@@ -129,7 +129,10 @@ function wp_rest_reference_bootstrap_js() {
 	// Store the reference as a string in sessionStorage.
 	$output = sprintf( "<script>if ( sessionStorage ) { sessionStorage.setItem( 'referenceData', JSON.stringify( %s ) ); }</script>", $json );
 
+	// If somehow the WP REST API schema is hijacked this is a minor loophole but the other implications would be alot larger.
+	// @codingStandardsIgnoreStart
 	echo $output;
+	// @codingStandardsIgnoreEnd
 }
 
 /**
@@ -161,17 +164,6 @@ function wp_rest_reference_activation_check() {
 	if ( ! wp_rest_reference_is_compatible() ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		wp_die( esc_html__( 'WP REST API Reference requires WordPress 4.7 or higher!', 'wp-rest-reference' ) );
-
-		/*
-		if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) );
-			add_action( 'admin_notices', 'wp_rest_reference_disabled_wp_notice' );
-
-			if ( isset( $_GET['activate'] ) ) {
-				unset( $_GET['activate'] );
-			}
-		}
-		*/
 	}
 
 	flush_rewrite_rules();
