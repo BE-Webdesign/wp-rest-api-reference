@@ -21,7 +21,7 @@ add_action( 'wp_rest_api_reference_after_main_content', 'wp_rest_api_reference_c
 do_action( 'wp_rest_api_reference_before_main_content' );
 
 ?>
-<h1>HI!!!!!</h1>
+<h1>WP REST API Reference</h1>
 <div id="wp-rest-api-reference" class="wp-rest-api-reference"></div>
 <?php
 

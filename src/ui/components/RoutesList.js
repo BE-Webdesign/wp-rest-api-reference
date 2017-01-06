@@ -9,7 +9,7 @@ import React from 'react'
 import ReferenceRoute from './ReferenceRoute'
 
 const RoutesList = ( { routes } ) => (
-	<div>
+	<div className="routes-list">
 		{ routes.map( route => <ReferenceRoute {...route} key={ route.routeName } /> ) }
 	</div>
 )

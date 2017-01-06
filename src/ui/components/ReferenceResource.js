@@ -9,8 +9,8 @@ import React from 'react'
 import RoutesList from './RoutesList'
 
 const ReferenceResource = ( { resource } ) => (
-	<div>
-		<h1>{ resource.type }</h1>
+	<div className="reference-resource">
+		<h1 className="reference-resource__title">{ resource.type }</h1>
 		<RoutesList routes={ resource.routes } />
 	</div>
 )
