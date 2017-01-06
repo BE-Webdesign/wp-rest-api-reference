@@ -4,9 +4,11 @@
 import React from 'react'
 
 const ResourcesMenu = ( { resources } ) => (
-	<div>
-		<h1>Resources List</h1>
-		{ resources.map( resource => <div key={ resource }>{ resource }</div> ) }
+	<div className="resources-menu">
+		<h1 className="resources-menu__title">Resources List</h1>
+		<ul className="resources-menu__menu">
+			{ resources.map( resource => <li className="resources-menu__item" key={ resource }>{ resource }</li> ) }
+		</ul>
 	</div>
 )
 

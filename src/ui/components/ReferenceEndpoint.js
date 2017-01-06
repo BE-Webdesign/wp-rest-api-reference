@@ -9,9 +9,9 @@ import React from 'react'
 import ArgsList from './ArgsList'
 
 const ReferenceEndpoint = ( { endpoint } ) => (
-	<div>
-		<ul>
-			{ endpoint.methods.map( ( method, index ) => <li key={ index }>{ method }</li> ) }
+	<div className="reference-endpoint">
+		<ul className="reference-endpoint__menu">
+			{ endpoint.methods.map( ( method, index ) => <li className="reference-endpoint__item" key={ index }>{ method }</li> ) }
 		</ul>
 		<ArgsList args={ endpoint.args } />
 	</div>

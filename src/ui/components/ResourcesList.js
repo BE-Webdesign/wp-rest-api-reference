@@ -9,7 +9,7 @@ import React from 'react'
 import ReferenceResource from './ReferenceResource'
 
 const ResourceList = ( { resources } ) => (
-	<div>
+	<div className="resources-list">
 		{ resources.map( resource => <ReferenceResource resource={ resource } key={ resource.type } /> ) }
 	</div>
 )

@@ -29,18 +29,18 @@ const ReferenceArg = ( { arg } ) => {
 		if ( ! ( 'name' === propertyName ) ) {
 			if ( object[ propertyName ] instanceof Object && ! ( object[ propertyName ] instanceof Array ) ) {
 				return (
-					<li key={ propertyName }>
-						<h4>{ propertyName }:</h4>
-						<ul>{ getProperties( object[ propertyName ] ).map( name => renderProperty( name, object[ propertyName ] ) ) }</ul>
+					<li className="property" key={ propertyName }>
+						<h4 className="property-name">{ propertyName }:</h4>
+						<ul className="propertiy__list">{ getProperties( object[ propertyName ] ).map( name => renderProperty( name, object[ propertyName ] ) ) }</ul>
 					</li>
 				)
 			}
 
 			if ( Array.isArray( object[ propertyName ] ) ) {
 				return (
-					<li key={ propertyName }>
-						<h4>{ propertyName }:</h4>
-						<ul>
+					<li className="property" key={ propertyName }>
+						<h4 className="property-name" >{ propertyName }:</h4>
+						<ul className="property__list">
 						{ renderArray( object[ propertyName ] ) }
 						</ul>
 					</li>
@@ -48,9 +48,9 @@ const ReferenceArg = ( { arg } ) => {
 			}
 
 			return (
-				<li key={ propertyName }>
-					<h4>{ propertyName }</h4>
-					<p>{ renderValue( String( object[ propertyName ] ) ) }</p>
+				<li className="property" key={ propertyName }>
+					<h4 className="property__name">{ propertyName }</h4>
+					<p className="property__value">{ renderValue( String( object[ propertyName ] ) ) }</p>
 				</li>
 			)
 		}
@@ -58,8 +58,8 @@ const ReferenceArg = ( { arg } ) => {
 
 	return (
 		<div>
-			<h3>{ arg.name }</h3>
-			<ul>
+			<h3 className="reference-arg">{ arg.name }</h3>
+			<ul className="reference-arg__list">
 				{ getProperties( arg ).map( propertyName => renderProperty( propertyName, arg ) ) }
 			</ul>
 		</div>

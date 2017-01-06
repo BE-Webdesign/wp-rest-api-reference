@@ -9,8 +9,8 @@ import React from 'react'
 import EndpointsList from './EndpointsList'
 
 const ReferenceRoute = ( route ) => (
-	<div>
-		<h2>Route: { route.routeName }</h2>
+	<div className="reference-route">
+		<h2 className="reference-route__title">Route: { route.routeName }</h2>
 		<EndpointsList endpoints={ route.endpoints } />
 	</div>
 )

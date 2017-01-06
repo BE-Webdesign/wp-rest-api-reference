@@ -10,8 +10,8 @@ import ResourcesMenu from './ResourcesMenu'
 import ResourcesList from './ResourcesList'
 
 const ReferenceView = ( { reference } ) => (
-	<div>
-		<h1>WP REST API Reference!</h1>
+	<div className="reference-view">
+		<h1 className="reference-view__title">Welcome!</h1>
 		<ResourcesMenu resources={ reference.schemaTypes } />
 		<ResourcesList resources={ reference.routesGroupedBySchema } />
 	</div>

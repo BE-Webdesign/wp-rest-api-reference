@@ -10,8 +10,8 @@ import ReferenceEndpoint from './ReferenceEndpoint'
 
 const EndpointsList = ( { endpoints } ) => {
 	return (
-		<div>
-			<h3>Endpoints:</h3>
+		<div className="endpoints-list">
+			<h3 className="endpoints-list__title">Endpoints:</h3>
 			<ul>
 				{ endpoints.map( ( endpoint, index ) => <ReferenceEndpoint endpoint={ endpoint } key={ index } /> ) }
 			</ul>

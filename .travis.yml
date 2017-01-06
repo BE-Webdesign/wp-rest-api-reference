@@ -2,4 +2,4 @@ language: node_js
 
 # Test on latest stable release of Node.js.
 node_js:
-  - "node"
+  - node
