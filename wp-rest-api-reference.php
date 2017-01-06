@@ -52,7 +52,12 @@ function wp_rest_reference_init() {
  * @see add_rewrite_rule()
  */
 function wp_rest_reference_register_rewrites() {
+	global $wp_rewrite;
+
 	add_rewrite_rule( '^' . get_rest_reference_url_path() . '/?$', 'index.php?rest_reference_path=/', 'top' );
+	add_rewrite_rule( '^' . get_rest_reference_url_path() . '/(.*)?', 'index.php?rest_reference_path=/$matches[1]', 'top' );
+	add_rewrite_rule( '^' . $wp_rewrite->index . '/' . rest_get_url_prefix() . '/?$','index.php?rest_reference_path=/','top' );
+	add_rewrite_rule( '^' . $wp_rewrite->index . '/' . rest_get_url_prefix() . '/(.*)?','index.php?rest_reference_path=/$matches[1]','top' );
 }
 
 /**
