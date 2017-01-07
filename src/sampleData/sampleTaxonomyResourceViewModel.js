@@ -1,43 +1,22 @@
-const sampleTaxonomyRouteViewModel = {
-	routeName: "/wp/v2/taxonomies",
-	"namespace": "wp/v2",
-	"methods": [
-		"GET"
+/**
+ * Internal dependencies.
+ */
+import sampleTaxonomyRouteViewModel from './sampleTaxonomyRouteViewModel'
+import sampleTaxonomyRouteViewModel2 from './sampleTaxonomyRouteViewModel2'
+
+const sampleTaxonomyResourceViewModel = {
+	type: 'taxonomy',
+	routes: [
+		sampleTaxonomyRouteViewModel,
+		sampleTaxonomyRouteViewModel2
 	],
-	"endpoints": [
-		{
-			type: 'readable',
-			"methods": [
-				"GET"
-			],
-			"args": [
-				{
-					name: "context",
-					"required": false,
-					"default": "view",
-					"enum": [
-						"view",
-						"embed",
-						"edit"
-					],
-					"description": "Scope under which the request is made; determines fields present in response.",
-					"type": "string"
-				},
-				{
-					name: "type",
-					"required": false,
-					"description": "Limit results to taxonomies associated with a specific post type.",
-					"type": "string"
-				}
-			]
-		}
-	],
-	"schema": {
-		"$schema": "http://json-schema.org/schema#",
-		"title": "taxonomy",
-		"type": "object",
-		"properties": {
-			"capabilities": {
+	schema: {
+		$schema: 'http://json-schema.org/schema#',
+		title: 'taxonomy',
+		type: 'object',
+		properties: [
+			{
+				name: "capabilities",
 				"description": "All capabilities used by the taxonomy.",
 				"type": "object",
 				"context": [
@@ -45,7 +24,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"description": {
+			{
+				name: "description",
 				"description": "A human-readable description of the taxonomy.",
 				"type": "string",
 				"context": [
@@ -54,7 +34,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"hierarchical": {
+			{
+				name: "hierarchical",
 				"description": "Whether or not the taxonomy should have children.",
 				"type": "boolean",
 				"context": [
@@ -63,7 +44,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"labels": {
+			{
+				name: "labels",
 				"description": "Human-readable labels for the taxonomy for various contexts.",
 				"type": "object",
 				"context": [
@@ -71,7 +53,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"name": {
+			{
+				name: "name",
 				"description": "The title for the taxonomy.",
 				"type": "string",
 				"context": [
@@ -81,7 +64,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"slug": {
+			{
+				name: "slug",
 				"description": "An alphanumeric identifier for the taxonomy.",
 				"type": "string",
 				"context": [
@@ -91,7 +75,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"show_cloud": {
+			{
+				name: "show_cloud",
 				"description": "Whether or not the term cloud should be displayed.",
 				"type": "boolean",
 				"context": [
@@ -99,7 +84,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"types": {
+			{
+				name: "types",
 				"description": "Types associated with the taxonomy.",
 				"type": "array",
 				"items": {
@@ -111,7 +97,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			},
-			"rest_base": {
+			{
+				name: "rest_base",
 				"description": "REST base route for the taxonomy.",
 				"type": "string",
 				"context": [
@@ -121,11 +108,8 @@ const sampleTaxonomyRouteViewModel = {
 				],
 				"readonly": true
 			}
-		}
-	},
-	"_links": {
-		"self": "http://local.graphql.dev/wp-json/wp/v2/taxonomies"
+		]
 	}
 }
 
-export default sampleTaxonomyRouteViewModel
+export default sampleTaxonomyResourceViewModel

@@ -59,6 +59,10 @@ const ReferencePresenter = ( reference ) => {
 
 	const buildRoutes = routes => routes.map( buildRoute )
 
+	const buildSchemaProperties = schemaProperties => Object.keys( schemaProperties ).map( name => Object.assign( {}, { name }, schemaProperties[ name ] ) )
+
+	const buildSchema = schema => Object.assign( {}, schema, { properties: buildSchemaProperties( schema.properties ) } )
+
 	const getRoutes = () => buildRoutes( reference.getRoutes() )
 
 	const getRoutesWithSchema = () => {
@@ -75,7 +79,8 @@ const ReferencePresenter = ( reference ) => {
 		let routesWithSchema = getSchemaTypes().map( ( schemaType ) => {
 			let schema = {
 				type: schemaType,
-				routes: getRoutesWithSchema().filter( route => schemaType === route.schema.title )
+				routes: getRoutesWithSchema().filter( route => schemaType === route.schema.title ),
+				schema: buildSchema( getRoutesWithSchema().find( route => schemaType === route.schema.title ).schema )
 			}
 
 			return schema
@@ -83,7 +88,8 @@ const ReferencePresenter = ( reference ) => {
 
 		let routesWithoutSchema = {
 			type: 'none',
-			routes: getRoutesWithoutSchema()
+			routes: getRoutesWithoutSchema(),
+			schema: {}
 		}
 
 		// Create a new list out of both of these lists of routes.
