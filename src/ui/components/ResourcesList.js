@@ -8,10 +8,10 @@ import React from 'react'
  */
 import ReferenceResource from './ReferenceResource'
 
-const ResourceList = ( { resources } ) => (
+const ResourcesList = ( { resources } ) => (
 	<div className="resources-list">
 		{ resources.map( resource => <ReferenceResource resource={ resource } key={ resource.type } /> ) }
 	</div>
 )
 
-export default ResourceList
+export default ResourcesList

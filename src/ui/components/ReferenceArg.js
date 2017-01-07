@@ -3,6 +3,11 @@
  */
 import React from 'react'
 
+/**
+ * Internal dependencies.
+ */
+import EditNote from './EditNote'
+
 const ReferenceArg = ( { arg } ) => {
 	const renderValue = ( value ) => {
 		if ( value.length === 0 ) {
@@ -62,6 +67,7 @@ const ReferenceArg = ( { arg } ) => {
 			<ul className="reference-arg__list">
 				{ getProperties( arg ).map( propertyName => renderProperty( propertyName, arg ) ) }
 			</ul>
+			<EditNote field={ { name: arg.name } } />
 		</div>
 	)
 }
