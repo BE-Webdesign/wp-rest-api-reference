@@ -89,7 +89,9 @@ const ReferencePresenter = ( reference ) => {
 		let routesWithoutSchema = {
 			type: 'none',
 			routes: getRoutesWithoutSchema(),
-			schema: {}
+			schema: {
+				properties: []
+			}
 		}
 
 		// Create a new list out of both of these lists of routes.
