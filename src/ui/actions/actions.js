@@ -1,6 +1,11 @@
 /*
- * action types
+ * Action types
  */
-export const LOAD_POST = 'LOAD_POST'
+export const BOOTSTRAP_REFERENCE = 'BOOTSTRAP_REFERENCE'
 
-export const FETCH_POST = 'FETCH_POST'
+/**
+ * Actions for handling currentUser.
+ */
+export const FETCH_CURRENT_USER_REQUEST = 'FETCH_CURRENT_USER_REQUEST'
+export const FETCH_CURRENT_USER_REQUEST_SUCCESS = 'FETCH_CURRENT_USER_REQUEST_SUCCESS'
+export const FETCH_CURRENT_USER_REQUEST_FAILURE = 'FETCH_CURRENT_USER_REQUEST_FAILURE'

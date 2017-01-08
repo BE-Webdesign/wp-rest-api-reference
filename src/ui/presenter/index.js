@@ -75,12 +75,14 @@ const ReferencePresenter = ( reference ) => {
 
 	const getSchemaTypes = () => uniqueArray( getRoutesWithSchema().map( route => route.schema.title ) )
 
+	const findMatchingSchemaData = schemaType => getRoutesWithSchema().find( route => schemaType === route.schema.title ).schema
+
 	const getRoutesGroupedBySchemaType = () => {
 		let routesWithSchema = getSchemaTypes().map( ( schemaType ) => {
 			let schema = {
 				type: schemaType,
 				routes: getRoutesWithSchema().filter( route => schemaType === route.schema.title ),
-				schema: buildSchema( getRoutesWithSchema().find( route => schemaType === route.schema.title ).schema )
+				schema: buildSchema( findMatchingSchemaData( schemaType ) )
 			}
 
 			return schema
